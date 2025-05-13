@@ -1,14 +1,14 @@
 ﻿using Mylinq;
 
 // Create list of students
-List<Student> students = new List<Student>
-{
+List<Student> students =
+[
     new Student("John", 18, 85),
     new Student("Mary", 20, 65),
     new Student("Tom", 19, 90),
     new Student("Aluko", 30, 75),
     new Student("Josh", 24, 55)
-};
+];
 
 // Filter students with score > 70 and sort by score descending
 var highScorersFluentStyle = students
@@ -71,8 +71,8 @@ string filePath = @"C:\Users\ABBAS.JODA\Desktop\Posting API DB Design.txt";
 string fileContent = await FetchFromFile(filePath);
 Console.WriteLine(fileContent);
 
-async Task<string> FetchFromFile(string filePath)
+static async Task<string> FetchFromFile(string filePath)
 {
-    using StreamReader streamReader = new StreamReader(filePath);
+    using StreamReader streamReader = new(filePath);
     return await streamReader.ReadToEndAsync();
 }
