@@ -10,18 +10,18 @@ List<Student> students =
     new Student("Josh", 24, 55)
 ];
 
+// SELECT * FROM students WHERE score > 70 ORDER BY score DESC
+
 // Filter students with score > 70 and sort by score descending
 var highScorersFluentStyle = students
     .Where(s => s.Score > 70)
     .OrderByDescending(s => s.Score)
     .ToList();
 
-var highScorersExpressionStyle= from student in students
-                                          where student.Score > 70
-                                          orderby student.Score descending
-                                          select student;
-
-// await DisplayStudentByScoreDesc();
+var highScorersExpressionStyle = from student in students
+                                    where student.Score > 70
+                                    orderby student.Score descending
+                                    select student;
 
 var studentAgeInAsc = students.OrderBy(s => s.Age).ToList();
 
@@ -33,8 +33,9 @@ var sumAgeOfStudentWithHighScore = students
 
 // DisplayStudentByAgeAsc();
 
+// DisplayStudentByScoreDesc();
 
-// async Task DisplayStudentByScoreDesc()
+// void DisplayStudentByScoreDesc()
 // {
 //     // Display results
 //     Console.WriteLine("Students who scored more than 70 (sorted by score descending):");
@@ -42,9 +43,7 @@ var sumAgeOfStudentWithHighScore = students
 //     Console.WriteLine("Name\tAge\tScore");
 //     Console.WriteLine("----\t---\t-----");
 
-//     await Task.Delay(3000);
-
-//     foreach (var student in highScorersFluentStyle)
+//     foreach (var student in highScorersExpressionStyle)
 //     {
 //         Console.WriteLine($"{student.Name}\t{student.Age}\t{student.Score}");
 //     }
@@ -67,6 +66,7 @@ var sumAgeOfStudentWithHighScore = students
 
 //Task and Task<T>
 //Desktop\Posting API DB Design.txt
+
 string filePath = @"C:\Users\ABBAS.JODA\Desktop\Posting API DB Design.txt";
 string fileContent = await FetchFromFile(filePath);
 Console.WriteLine(fileContent);
